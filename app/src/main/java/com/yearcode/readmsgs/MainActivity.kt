@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         setupSecuritySpinner()
 
         btnSaveStart.setOnClickListener { onSaveAndStart() }
-        btnStop.setOnClickListener { onStop() }
+        btnStop.setOnClickListener { stopForward() }
         btnTest.setOnClickListener { onTest() }
         btnOpenSettings.setOnClickListener { openAppSettings() }
     }
@@ -115,7 +115,7 @@ class MainActivity : AppCompatActivity() {
         requestNeededPermissions()
     }
 
-    private fun onStop() {
+    private fun stopForward() {
         AppConfigStore.setEnabled(this, false)
         SmsForwardService.stop(this)
         tvStatus.text = "服务已停止"
